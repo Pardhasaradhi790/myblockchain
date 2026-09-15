@@ -1,0 +1,100 @@
+## File Extraction Pipeline – Generic Scenario
+
+An organization receives documents from multiple external sources. These files may arrive as PDF, Excel, CSV, Word documents, or scanned images.
+
+Each source may use a different document structure and different column names, but the organization needs to extract the data into one common database format.
+
+For example, the target fields are:
+
+* Item ID
+* Item Description
+* Category
+* Amount
+* Effective Date
+
+However, the source files are inconsistent.
+
+For example:
+
+* `Item ID` may appear as `Product Code`, `Reference ID`, or `Service Code`.
+* `Amount` may appear as `Price`, `Cost`, `Fee`, or `Total Amount`.
+* Some tables may continue across multiple pages.
+* Some pages may contain only instructions or notes.
+* Some PDFs may be scanned and require OCR.
+* Files may contain merged cells, repeated headers, missing values, footnotes, and inconsistent date or currency formats.
+
+### Question
+
+You are asked to build an end-to-end File Extraction pipeline.
+
+Explain how you would design the solution from the time a file is received until clean, standardized, validated data is stored in a database.
+
+Please explain:
+
+1. How would you identify the file type and determine whether OCR is required?
+
+2. How would you identify the relevant pages, tables, or sections from a large document?
+
+3. How would you extract structured data from different file formats?
+
+4. How would you handle multi-page tables, missing headers, merged cells, repeated headers, and footnotes?
+
+5. How would you map different source column names into one common target schema?
+
+6. How would you standardize values such as IDs, dates, amounts, and null values?
+
+7. How would you validate the extracted data and detect incorrect extraction or incorrect column mappings?
+
+8. What should happen if the document contains a new format, unknown column, or missing required field?
+
+9. What information would you store so that the extraction can be audited, debugged, or reprocessed later?
+
+10. How would you make the pipeline reusable for new document formats without writing a completely new extraction script every time?
+
+### AI vs Non-AI
+
+First explain how you would implement the solution using traditional programming, rules, OCR, schemas, and configuration without using an LLM.
+
+Then explain:
+
+* Where would AI or an LLM improve the pipeline?
+* Which parts should remain deterministic?
+* How would you validate AI-generated results?
+* How would you use confidence scores?
+* When should the system automatically process the record?
+* When should it send the record for human review?
+
+Finally, explain or draw the end-to-end architecture for your solution.
+
+
+Generic Scenario-Based Interview Question
+
+We have a system that stores thousands of records for different regions. Each record contains:
+
+A unique record ID
+A region code
+A free-text comment or supporting note
+Existing structured business rules and condition values
+
+When the pipeline runs, the user provides a region code. The system must retrieve all eligible records for that region, read the available comments or notes, fetch the corresponding existing rules, and send both to an LLM.
+
+The LLM must determine whether the comment matches the existing rules. If they do not match, it should identify the incorrect or missing condition and return a recommended value, explanation, and confidence score.
+
+The system should not directly update the production database when the confidence is low. Low-confidence results must be sent for manual review, while high-confidence recommendations may proceed through an approved update process.
+
+Question:
+
+How would you design and implement this end-to-end pipeline?
+
+In your answer, explain:
+
+How you would retrieve records using the region code
+How you would process comments and supporting notes
+How you would retrieve and map the existing rules for each record
+What information you would send to the LLM
+How you would enforce structured LLM responses
+How you would handle low-confidence or invalid responses
+How you would prevent unsafe production updates
+How you would process thousands of records efficiently
+How you would implement logging, auditing, retries, and error handling
+How you would evaluate whether the LLM’s recommendations are accurate
