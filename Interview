@@ -98,3 +98,119 @@ How you would prevent unsafe production updates
 How you would process thousands of records efficiently
 How you would implement logging, auditing, retries, and error handling
 How you would evaluate whether the LLM’s recommendations are accurate
+
+
+
+INTRODUCTION
+“Hi Sunder, I’m Pardha. Our team works on data-processing, automation, and AI-based solutions.”
+“Today, we would like to understand your experience, technical knowledge, and approach to real project scenarios.”
+CANDIDATE INTRODUCTION
+“Could you please introduce yourself and explain your current role?”
+“Could you explain your main responsibilities at Halliburton?”
+“What do you work on every day?”
+“What part of the work do you personally handle?”
+PROJECT EXPLANATION
+“Can you choose one recent AI project and explain it end to end?”
+“What business problem were you solving?”
+“Who used the application?”
+“What data did the application receive?”
+“Can you explain the complete data flow?”
+“What AI model did you use?”
+“Why did you select that model?”
+“What part did you personally design or develop?”
+“How did you deploy the application?”
+“How did you monitor it in production?”
+“What was the main challenge?”
+“How did you solve that challenge?”
+“How did you measure the project’s success?”
+AI QUESTIONS
+“You mentioned Agentic AI. What makes a system agentic?”
+“Why did your project need multiple agents?”
+“What was the responsibility of each agent?”
+“How did the system select the correct agent?”
+“How did the agents share information?”
+“How did you prevent agents from repeatedly calling the same tool?”
+“What happened if one agent failed?”
+“When would you avoid using multiple agents?”
+“You mentioned RAG. Can you explain the complete RAG process?”
+“How did you split the documents into chunks?”
+“How did you choose the chunk size?”
+“Which embedding model did you use?”
+“Why did you use hybrid search?”
+“How did you select the top-K results?”
+“Did you use a reranker?”
+“How did you generate citations?”
+“What happened when the answer was not in the documents?”
+“How did you measure RAG accuracy?”
+“You mentioned Azure AI Foundry. How did you use it?”
+“What did Foundry manage in your project?”
+“How did you control access to the models?”
+“How did you evaluate models and prompts?”
+“You mentioned structured output. How did you make the LLM return valid JSON?”
+“What happened when the LLM returned an invalid response?”
+“How did you check whether a valid JSON response was technically correct?”
+“How did you detect hallucinations?”
+“What happened when the answer was not grounded in the source?”
+“How did you protect the system from prompt injection?”
+“How did you protect sensitive data?”
+“How did you control which tools an agent could execute?”
+“You mentioned model routing. How did it work?”
+“How did you reduce LLM cost and response time?”
+“You mentioned semantic caching. How did you implement it?”
+“How did you clear the cache when the source data changed?”
+SCENARIO 1: FILE EXTRACTION
+“An organization receives PDF, Excel, CSV, Word, and scanned files from different sources. Each file has a different format, but the data must be stored in one common database format. How would you design this pipeline?”
+FOLLOW-UP QUESTIONS
+“How would you identify the file type?”
+“How would you check whether OCR is required?”
+“What if the PDF contains both scanned and digital pages?”
+“How would you identify the pages containing useful data?”
+“How would you extract tables from different file types?”
+“What if a table continues onto the next page?”
+“What if the next page does not contain headers?”
+“How would you handle merged cells?”
+“How would you remove repeated headers?”
+“How would you handle footnotes?”
+“How would you map different column names to one common schema?”
+“How would you check whether the mapping is correct?”
+“How would you standardize dates and amounts?”
+“How would you handle missing required fields?”
+“What would happen if a new file format arrived?”
+“Which steps would use normal programming?”
+“Which steps would use an LLM?”
+“How would you validate the LLM’s output?”
+“When would you send a record for human review?”
+“How would you prevent duplicate processing?”
+“What information would you store for auditing?”
+“How would you make the pipeline reusable for new formats?”
+SCENARIO 2: COMMENT AND RULE COMPARISON
+“We have records for different regions. Each record has a comment and existing business rules. The system must use an LLM to check whether the comment matches the rules. How would you design this pipeline?”
+FOLLOW-UP QUESTIONS
+“How would you retrieve records for one region?”
+“Which records should be processed?”
+“What if both the comment and supporting note are available?”
+“What if they contain conflicting information?”
+“How would you clean the comment?”
+“How would you retrieve the existing rules?”
+“What information would you send to the LLM?”
+“What should the LLM return?”
+“How would you force a structured response?”
+“How would you validate the response?”
+“Would you trust the LLM’s confidence score?”
+“How would you choose the confidence threshold?”
+“When should a record go for human review?”
+“What checks should pass before updating the database?”
+“How would dry-run mode work?”
+“How would you prevent accidental production updates?”
+“How would you process 40,000 records?”
+“How would you handle LLM rate limits?”
+“How would you prevent two workers from processing the same record?”
+“How would you safely retry a failed record?”
+“How would you prevent duplicate updates?”
+“What information would you log?”
+“How would you measure the LLM’s accuracy?”
+“What if the LLM gives a wrong answer with high confidence?”
+CLOSING
+“Thank you, Sunder. That covers my questions.”
+“Do you have any questions for us about the team or the role?”
+
